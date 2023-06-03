@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="crud">
+    <h1>Registration</h1>
+    <form>
+      <div class="form">
+        <label for="name">Name: </label>
+        <input type="text" [(ngModel)]="name" class="control" id="name" name="name">
+      </div>
+      <div class="form">
+        <label for="mobileNumber">Mobile No.: </label>
+        <input type="text" [(ngModel)]="mobileNumber" class="control" id="mobileNumber" name="mobileNumber">
+      </div>
+      <div class="form">
+        <label for="gender">Gender: </label>
+        <input type="text" [(ngModel)]="gender" class="control" id="gender" name="gender">
+      </div>
+      <div class="form">
+        <label for="age">Age: </label>
+        <input type="text" [(ngModel)]="age" class="control" id="age" name="age">
+      </div>
+      <br>
+      <button type="submit" class="button" (click)="save()">Save</button>
+    </form>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<div class="container">
+  <h2>Table</h2>
+  <table class="table">
+    <thead>
+      <h1 *ngIf="!isResultloaded">Loading....</h1>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">mobile number</th>
+        <th scope="col">gender</th>
+        <th scope="col">age</th>
+        <th scope="col">actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of array">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.mobileNumber }}</td>
+        <td>{{ item.gender }}</td>
+        <td>{{ item.age }}</td>
+        <td>
+          <button type="button" class="button_d" (click)="setDelete(item)">Delete</button>
+          <button type="button" class="button_e" (click)="setUpdate(item)">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
